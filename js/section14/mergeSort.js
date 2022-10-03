@@ -24,4 +24,12 @@ function mergeSort(arr1, arr2){
     return res;
 }
 
-console.log(mergeSort([1,2,4,6],[3,5,7,9,10]))
+function recursionMerge(arr){
+    if (arr.length <=1) return arr;
+    let mid = Math.floor(arr.length/2)
+    let left = recursionMerge(arr.slice(0,mid))
+    let right = recursionMerge(arr.slice(mid))
+    return mergeSort(left,right)
+}
+
+console.log(recursionMerge([1,5,6,3,9,7,4]));
